@@ -1,0 +1,22 @@
+profiles:
+  default:
+    fqbn: arduino:zephyr:unoq
+    platforms:
+      - platform: arduino:zephyr
+    libraries:
+      - MsgPack (0.4.2)
+      - DebugLog (0.8.4)
+      - ArxContainer (0.7.0)
+      - ArxTypeTraits (0.3.2)
+      - Adafruit BMP280 Library (3.0.0)
+      - dependency: Adafruit BusIO (1.17.4)
+      - dependency: Adafruit Unified Sensor (1.1.15)
+      - RTClib (2.1.4)
+      - Serial_Monitor (4.0.8)
+      - dependency: Arduino_RPClite (0.2.1)
+      - Arduino_RouterBridge (0.3.0)
+      - PGMTools (1.0.0)
+      - dependency: FOR_MACRO (1.0.0)
+      - pgm_utils (1.0.4)
+
+default_profile: default
