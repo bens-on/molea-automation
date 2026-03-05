@@ -8,14 +8,14 @@ Arduino Uno Q payload system for rocket data collection and soil sampling. This 
 - **BMP280** (I2C 0x77) - Altitude and internal payload temperature
 - **ICM-20948 IMU** (SPI: D11=MOSI, D12=MISO, D13=SCLK, D0=CS)
 - **Pololu DualVNH5019 Motor Driver Shield** - Motor control
-- **Buzzer** (D3)
+- **Buzzer** (D6)
 - **EZO pH Carrier Board** (I2C 0x63)
 
 ## Pin Configuration
 
 ### Motor Driver
-- D2 = M1INA, D4 = M1INB, D6 = M1EN, D9 = M1PWM, A0 = M1CS
-- D7 = M2INA, D8 = M2INB, **D5 = M2EN** (wire shield D12 to Arduino D5; D12 is IMU MISO)
+- D2 = M1INA, D4 = M1INB, D1 = M1EN, D9 = M1PWM, A0 = M1CS
+- D7 = M2INA, D8 = M2INB, **D3 = M2EN** (wire shield D12 to Arduino D5; D12 is IMU MISO)
 - D10 = M2PWM, A1 = M2CS
 - With separate power (jumper off): Arduino and shield must share GND.
 
@@ -37,17 +37,24 @@ Sensor data is output every 0.5 seconds to Serial (115200 baud) in the format:
 - RTC status
 - BMP280: Temperature, Altitude
 - IMU: Accelerometer (X, Y, Z)
+- IMU: Gyroscope (x, Y, Z)
+- IMU Orientation Flag
+- pH Output
 - Mission state
+- Motor Current Sensing
+- Motor OK Flag
 
 ## Mission States
 
 - **PREFLIGHT (0)**: Armed sound, ground detection
 - **FLIGHT (1)**: Recording sound, in-air data collection
-- **POSTFLIGHT (2)**: Landing detection, motor sequence, pH collection
+- **LANDING_CONFIRM (2)**: Landing detection, motor sequence, pH collection
+- **DRILLING (3)**: Actuation of lead screw mechanism. M1 is actuation motor, M2 os the auger motor.
+- **DISARMED (4)**: All motors are cutoff from the system. Data continuously collected until power off.
 
 ## Serial Commands
 
-Type `HELP` over the serial monitor for the full list. Commands include: `STATUS`, `TEST RTC` / `TRTC`, `TEST BMP280` / `TBMP`, `TEST IMU` / `TIMU`, `TEST MOTOR` / `TMOT`, `TEST BUZZER` / `TBUZ`, `TEST PH` / `TPH`, `TEST ALL` / `TALL`, `SET YYYY-MM-DD HH:MM:SS` (set RTC), `SETC` (set RTC to compile time).
+Type `HELP` over the serial monitor for the full list. 
 
 ## Libraries Required
 
