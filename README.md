@@ -74,5 +74,42 @@ Type `HELP` over the serial monitor for the full list.
 - `sketch/main/pH_init.*` - EZO pH sensor (Atlas I2C) init and read
 - `sketch/main/test_components.*` - Serial command parsing and component tests
 
+## Directory Tree
 
+molea-integration
+├── app.yaml
+├── examples
+│   └── arduino_UNO_pH_sample_code.ino
+├── python
+│   ├── main.py
+│   ├── plot_logs.py
+│   └── requirements.txt
+├── README.md
+└── sketch
+    ├── include
+    │   ├── BMP280_init.h
+    │   ├── buzzer_init.h
+    │   ├── config.h
+    │   ├── debug.h
+    │   ├── imu_init.h
+    │   ├── motor_init.h
+    │   ├── pgmspace.h
+    │   ├── pH_init.h
+    │   ├── rtc_init.h
+    │   ├── sd_logger.h
+    │   ├── storage_init.h
+    │   └── test_components.h
+    ├── main
+    │   ├── BMP280_init.cpp
+    │   ├── buzzer_init.cpp
+    │   ├── imu_init.cpp
+    │   ├── motor_init.cpp
+    │   ├── MOTORS_AND_CURRENT_SENSE.md
+    │   ├── pH_init.cpp
+    │   ├── rtc_init.cpp
+    │   ├── sd_logger.cpp
+    │   ├── storage_init.cpp
+    │   └── test_components.cpp
+    ├── sketch.ino
+    └── sketch.yaml
 

@@ -56,14 +56,14 @@ static unsigned long landingDeadlineMs  = 0;
 static const unsigned long LANDING_WINDOW_MS = 15UL * 60UL * 1000UL;
 
 // Mission timing (LANDING_CONFIRM and DRILLING)
-static const unsigned long LANDING_CONFIRM_STABLE_MS = 8000;
-static const unsigned long LANDING_CONFIRM_LEVELING_TIMEOUT_MS = 15000;  // max wait before starting M1 (fallback)
-static const int           LANDING_CONFIRM_M1_SPEED  = 200;
-static uint8_t             legTimeMin = LEG_TIME_MIN_DEFAULT;  // M1 run time for leg leveling (minutes); set via LEG_TIME command
-static bool                landingConfirmSkipStable = false;  // set by SET_STATE LANDING_CONFIRM so M1 starts immediately
-static const unsigned long Z_UP_HOLD_MS              = 1000;
-static const float         Z_UP_ACCEL_Z_MIN          = 8.0f;
-static const float         Z_UP_ACCEL_XY_MAX         = 3.0f;
+FINAL static const unsigned long LANDING_CONFIRM_STABLE_MS = 8000;
+FINAL static const unsigned long LANDING_CONFIRM_LEVELING_TIMEOUT_MS = 15000;  // max wait before starting M1 (fallback)
+FINAL static const int           LANDING_CONFIRM_M1_SPEED  = 200;
+FINAL static uint8_t             legTimeMin = LEG_TIME_MIN_DEFAULT;  // M1 run time for leg leveling (minutes); set via LEG_TIME command
+FINAL static bool                landingConfirmSkipStable = false;  // set by SET_STATE LANDING_CONFIRM so M1 starts immediately
+FINAL static const unsigned long Z_UP_HOLD_MS              = 1000;
+FINAL static const float         Z_UP_ACCEL_Z_MIN          = 8.0f;
+FINAL static const float         Z_UP_ACCEL_XY_MAX         = 3.0f;
 
 static const uint8_t       DRILL_DURATION_MINUTES_DEFAULT = 8;
 static uint8_t             drillDurationMinutes = DRILL_DURATION_MINUTES_DEFAULT;
